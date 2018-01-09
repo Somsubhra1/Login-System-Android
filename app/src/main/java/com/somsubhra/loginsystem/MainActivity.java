@@ -49,22 +49,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         for( String i : userArray ) {
-            if ( i.equalsIgnoreCase(user) ) {
+            if ( i.equals(user) ) {
                 check_User = true;
                 index = userArray.indexOf(user);
-                if( passArray.get(index).equalsIgnoreCase(pass) ) {
+                if( passArray.get(index).equals(pass) ) {
                     Toast.makeText(this, "Sign In Successful", Toast.LENGTH_SHORT).show();
                     Intent success = new Intent(this, SuccessActivity.class);
                     startActivity(success);
                     break;
                 }
                 else {
-                    Toast.makeText(this, "Wrong Username or password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Wrong Username or password! Remember username and password both are case sensitive", Toast.LENGTH_SHORT).show();
                 }
             }
         }
         if ( !check_User ) {
-            Toast.makeText(this, "No Such Username. Please Sign UP First!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No Such Username. Please Sign UP First!! Remember username and password both are case sensitive", Toast.LENGTH_SHORT).show();
         }
     }
     private void signUp(String user, String pass) {
